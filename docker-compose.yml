@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    image: mcd-manager:latest
+    container_name: mcd-manager-web
+    restart: unless-stopped
+    # Using gunicorn as the production WSGI server. Timeout increased as sync might take a while.
+    command: gunicorn --bind 0.0.0.0:4335 --workers 1 --threads 8 --timeout 120 app:app
+    ports:
+      - "4335:4335"
+    networks:
+      - nginx_default
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  nginx_default:
+    external: true

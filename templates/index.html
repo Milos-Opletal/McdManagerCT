@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMCD Analytika Verifikací</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="glass-panel main-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <div class="logo-icon">V</div>
+                    <h1>Analytika Verifikací</h1>
+                </div>
+                <div class="header-actions">
+                    <div id="last-sync-time" class="sync-status">Poslední synchronizace: Nikdy</div>
+                    <button id="sync-btn" class="btn btn-primary" onclick="triggerSync()">
+                        <span class="btn-text">Synchronizovat data</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Controls / Filters -->
+            <section class="glass-panel controls-section">
+                <div class="controls-header">
+                    <h2>Filtry a ovládání</h2>
+                    <span id="total-count" class="badge">0 Záznamů</span>
+                </div>
+                
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label>Filtrovat podle pozice:</label>
+                        <div id="filter-container" class="filter-chips">
+                            <!-- Chips inserted by JS -->
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group date-group">
+                        <label>Filtrovat podle data:</label>
+                        <div class="date-filters">
+                            <input type="date" id="start-date" class="date-input" onchange="renderTable()">
+                            <span class="date-separator">do</span>
+                            <input type="date" id="end-date" class="date-input" onchange="renderTable()">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Display -->
+            <section class="data-section">
+                <div class="glass-panel table-container">
+                    <table id="verifications-table">
+                        <thead>
+                            <tr>
+                                <th>Jméno</th>
+                                <th>Pozice</th>
+                                <th>Verifikace</th>
+                                <th>Body</th>
+                                <th>Datum</th>
+                                <th>Hodnotitel</th>
+                                <th>Stav</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Rows inserted by JS -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- Loading State / Empty State -->
+                    <div id="state-message" class="state-message hidden">
+                        <div class="big-spinner"></div>
+                        <p>Načítám data verifikací...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script references -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přihlášení - MyMCD Analytika Verifikací</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: var(--bg-color);">
+    <div class="glass-panel" style="width: 100%; max-width: 400px; padding: 2rem; border-radius: 12px; text-align: center;">
+        <div class="logo-area" style="justify-content: center; margin-bottom: 1.5rem;">
+            <div class="logo-icon">V</div>
+        </div>
+        <h2 style="margin-bottom: 2rem; color: var(--text-primary); font-size: 1.5rem;">Zadejte heslo</h2>
+        
+        {% if error %}
+            <div style="background-color: rgba(255, 75, 75, 0.1); border: 1px solid rgba(255, 75, 75, 0.4); color: #ff4b4b; padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <div style="margin-bottom: 1.5rem; text-align: left;">
+                <label for="password" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Heslo pro přístup</label>
+                <input type="password" id="password" name="password" required 
+                       style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; outline: none; font-family: inherit;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                <span class="btn-text">Pokračovat</span>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

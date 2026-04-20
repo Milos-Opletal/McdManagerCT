@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.idea/
+*.log
+*.tar
+Dockerfile.example
+docker-compose.yml.example
+implementation_plan.md
+MyMcdAPI_Documentation.md
+test_api.py
