@@ -6,5 +6,4 @@ __pycache__
 .git
 Dockerfile
 docker-compose.yml
-Dockerfile.example
-docker-compose.yml.example
+*.tar

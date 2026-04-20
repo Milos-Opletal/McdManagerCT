@@ -532,7 +532,7 @@ class MyMcdAPI:
             return emp_results
 
         # Execute concurrently to significantly reduce total wait time
-        with ThreadPoolExecutor(max_workers=32) as executor:
+        with ThreadPoolExecutor(max_workers=16) as executor:
             futures = [executor.submit(process_employee, idx, emp) for idx, emp in enumerate(all_employees)]
             for future in as_completed(futures):
                 res = future.result()
