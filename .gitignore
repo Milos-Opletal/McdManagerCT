@@ -5,6 +5,7 @@ __pycache__/
 .idea/
 *.log
 *.tar
+data/
 Dockerfile.example
 docker-compose.yml.example
 implementation_plan.md
