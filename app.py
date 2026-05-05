@@ -10,7 +10,6 @@ from functools import wraps
 load_dotenv()
 
 app = Flask(__name__)
-
 app.secret_key = os.urandom(24).hex()
 
 def requires_auth(f):
