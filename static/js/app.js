@@ -1,5 +1,11 @@
 let allVerifications = [];
-const targetPositions = ["Crew", "Crew v tréninku", "Lídr péče o hosty", "Crew Trenér"];
+const targetPositions = [2, 1, 16, 5];
+const displayNames = {
+    2: "Crew",
+    1: "Crew v tréninku",
+    16: "Lídr péče o hosty",
+    5: "Crew Trenér"
+};
 // By default, show all of the target positions
 let activeFilters = new Set(targetPositions);
 
@@ -113,7 +119,7 @@ function buildFilters() {
     targetPositions.forEach(pos => {
         const chip = document.createElement('div');
         chip.className = `chip ${activeFilters.has(pos) ? 'active' : ''}`;
-        chip.textContent = pos;
+        chip.textContent = displayNames[pos] || pos;
         chip.onclick = () => {
             if (activeFilters.has(pos)) {
                 activeFilters.delete(pos);
@@ -137,8 +143,8 @@ function renderTable() {
 
     // Filter
     let filtered = allVerifications.filter(v => {
-        const posName = v.position_name || 'Unknown';
-        if (!activeFilters.has(posName)) return false;
+        const posId = v.position_id;
+        if (!activeFilters.has(posId)) return false;
 
         // Date filter
         if (v.verification_date && (startDateInput || endDateInput)) {
@@ -191,9 +197,11 @@ function renderTable() {
             dateDisplay = new Date(v.verification_date).toLocaleDateString();
         }
 
+        const renderedPosition = displayNames[v.position_id] || v.position_name || 'Neznámá pozice';
+        
         tr.innerHTML = `
             <td><strong>${escapeHtml(v.employee_name)}</strong></td>
-            <td>${escapeHtml(v.position_name || 'Neznámá pozice')}</td>
+            <td>${escapeHtml(renderedPosition)}</td>
             <td>${escapeHtml(v.verification_name)}</td>
             <td>${scoreDisplay}</td>
             <td>${dateDisplay}</td>

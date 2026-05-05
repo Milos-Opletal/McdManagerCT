@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMCD Dashboard</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .dashboard-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .dashboard-card h2 {
+            font-size: 1.5rem;
+            color: var(--mcd-red);
+        }
+        .dashboard-card p {
+            color: var(--text-secondary);
+        }
+        .card-icon {
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="glass-panel main-header">
+            <div class="header-content" style="justify-content: center;">
+                <div class="logo-area">
+                    <div class="logo-icon">M</div>
+                    <h1>MyMCD Manager</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard View -->
+        <main>
+            <div class="dashboard-grid">
+                <a href="/log" class="dashboard-card">
+                    <div class="card-icon">📊</div>
+                    <h2>Analytika Verifikací</h2>
+                    <p>Historie, body, filtrování zaměstnanců a detailní logy z verifikací.</p>
+                </a>
+                
+                <a href="/tables" class="dashboard-card">
+                    <div class="card-icon">📋</div>
+                    <h2>Tréninkové tabulky</h2>
+                    <p>Stanoviště, hodnocení Crew a papírové archy přímo na vaší obrazovce s možností exportu.</p>
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
