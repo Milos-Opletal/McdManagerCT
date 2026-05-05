@@ -1,8 +1,8 @@
 services:
   web:
     build: .
-    image: mcd-manager:latest
-    container_name: mcd-manager-web
+    image: mcd-yuliia:latest
+    container_name: mcd-yuliia
     restart: unless-stopped
     # Using gunicorn as the production WSGI server. Timeout increased as sync might take a while.
     command: gunicorn --bind 0.0.0.0:4335 --workers 1 --threads 1 --timeout 60 app:app
