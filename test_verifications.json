@@ -1,0 +1,42 @@
+[
+  {
+    "id": 5,
+    "name": {
+      "sk": "3.1. Temperácia & Príprava",
+      "cs": "3.1. Temperace & Příprava"
+    },
+    "isConcept": false
+  },
+  {
+    "id": 6,
+    "name": {
+      "sk": "3.2. MFY",
+      "cs": "3.2. MFY"
+    },
+    "isConcept": false
+  },
+  {
+    "id": 7,
+    "name": {
+      "sk": "3.6. Batch Cooker Grill",
+      "cs": "3.6. Batch Cooker Grill"
+    },
+    "isConcept": false
+  },
+  {
+    "id": 8,
+    "name": {
+      "sk": "5. McCafé",
+      "cs": "5. McCafé"
+    },
+    "isConcept": false
+  },
+  {
+    "id": 10,
+    "name": {
+      "sk": "3.3. MFY Raňajky",
+      "cs": "3.3. MFY Snídaně"
+    },
+    "isConcept": false
+  }
+]

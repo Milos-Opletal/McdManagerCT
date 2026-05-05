@@ -1,0 +1,293 @@
+/* ================================================
+   CT Performance Page – Custom Styles
+   ================================================ */
+
+/* Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+.stat-card.accent {
+    background: linear-gradient(135deg, rgba(218, 41, 28, 0.06), rgba(255, 199, 44, 0.08));
+    border-color: rgba(218, 41, 28, 0.15);
+}
+
+.stat-card.accent::before {
+    opacity: 1;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.stat-value {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* Back Button */
+.btn-back {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Performance Bar */
+.perf-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 180px;
+}
+
+.perf-bar-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.perf-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.perf-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.perf-bar-fill.perf-excellent {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.perf-bar-fill.perf-good {
+    background: linear-gradient(90deg, #f39c12, #f1c40f);
+}
+
+.perf-bar-fill.perf-low {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.perf-bar-fill.perf-zero {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.perf-pct {
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-width: 50px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.perf-pct.perf-excellent { color: #27ae60; }
+.perf-pct.perf-good { color: #d4a017; }
+.perf-pct.perf-low { color: #c0392b; }
+.perf-pct.perf-zero { color: var(--text-secondary); }
+
+/* Verification count cell */
+.verif-count {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.verif-count.has-verifs {
+    color: #27ae60;
+}
+
+.verif-count.no-verifs {
+    color: var(--text-secondary);
+}
+
+/* Shift count cell */
+.shift-count {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* Hours cell */
+.hours-cell {
+    font-family: 'Outfit', monospace;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* Table row highlight on hover */
+#ct-table tbody tr {
+    cursor: default;
+}
+
+#ct-table tbody tr:hover {
+    background: rgba(255, 199, 44, 0.06);
+}
+
+/* CT name styling */
+.ct-name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ct-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-yellow));
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(218, 41, 28, 0.2);
+}
+
+.ct-name-text {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Month input styling */
+#month-select {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    min-width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
+    }
+
+    .perf-bar-container {
+        min-width: 120px;
+    }
+
+    .ct-avatar {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Loading shimmer for stat cards */
+.stat-value.loading {
+    background: linear-gradient(90deg, rgba(0,0,0,0.05) 25%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.05) 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s ease-in-out infinite;
+    border-radius: 6px;
+    color: transparent !important;
+    min-width: 60px;
+    min-height: 2.4rem;
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Animate rows in */
+#ct-table tbody tr {
+    animation: row-slide-in 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes row-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

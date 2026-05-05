@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMCD – Výkon Crew Trenérů</title>
+    <meta name="description" content="Měsíční přehled výkonu Crew Trenérů – směny, verifikace a procentuální hodnocení.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/ct_performance.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="glass-panel main-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <div class="logo-icon">CT</div>
+                    <h1>Výkon Crew Trenérů</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="/" class="btn btn-back" id="back-btn">Zpět na Dashboard</a>
+                    <div id="last-sync-time" class="sync-status">Stav: Čeká na synchronizaci</div>
+                    <button id="sync-btn" class="btn btn-primary" onclick="syncCTPerformance()">
+                        <span class="btn-text">Synchronizovat</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Summary Cards -->
+        <section class="stats-row" id="stats-row">
+            <div class="glass-panel stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value" id="stat-total-cts">–</div>
+                <div class="stat-label">Crew Trenérů</div>
+            </div>
+            <div class="glass-panel stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-value" id="stat-total-shifts">–</div>
+                <div class="stat-label">Směn celkem</div>
+            </div>
+            <div class="glass-panel stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value" id="stat-total-verifs">–</div>
+                <div class="stat-label">Verifikací celkem</div>
+            </div>
+            <div class="glass-panel stat-card accent">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="stat-avg-pct">–</div>
+                <div class="stat-label">Průměrné %</div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Month selector -->
+            <section class="glass-panel controls-section">
+                <div class="controls-header">
+                    <h2>Měsíční přehled</h2>
+                    <span id="month-label" class="badge">Květen 2026</span>
+                </div>
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label for="month-select">Vyberte měsíc:</label>
+                        <input type="month" id="month-select" class="date-input">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="data-section">
+                <div class="glass-panel table-container">
+                    <table id="ct-table">
+                        <thead>
+                            <tr>
+                                <th>Crew Trenér</th>
+                                <th>Počet směn</th>
+                                <th>Odpracované hod.</th>
+                                <th>Verifikace</th>
+                                <th>Úspěšnost</th>
+                                <th>Výkon</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ct-table-body">
+                            <!-- Rows inserted by JS -->
+                        </tbody>
+                    </table>
+
+                    <!-- Loading State -->
+                    <div id="state-message" class="state-message">
+                        <div class="big-spinner"></div>
+                        <p>Klikněte na "Synchronizovat" pro načtení dat.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/ct_performance.js"></script>
+</body>
+</html>

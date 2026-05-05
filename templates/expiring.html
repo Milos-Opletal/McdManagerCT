@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMCD – Končící Verifikace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/expiring.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="glass-panel main-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <div class="logo-icon" style="background: #ffc72c; color: #1f2937;">⏳</div>
+                    <h1>Končící Verifikace</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="/" class="btn btn-back" id="back-btn">Zpět na Dashboard</a>
+                    <div id="last-sync-time" class="sync-status">Stav: Čeká na synchronizaci</div>
+                    <button id="sync-btn" class="btn btn-primary" onclick="syncExpiring()">
+                        <span class="btn-text">Synchronizovat</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Date selector -->
+            <section class="glass-panel controls-section">
+                <div class="controls-header">
+                    <h2>Přehled končících verifikací</h2>
+                </div>
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label for="date-select">Zobrazit verifikace končící do data:</label>
+                        <input type="date" id="date-select" class="date-input">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="data-section">
+                <div class="glass-panel table-container">
+                    <table id="expiring-table" class="hidden">
+                        <thead>
+                            <tr>
+                                <th>ZAMĚSTNANEC</th>
+                                <th>VERIFIKACE</th>
+                                <th>DATUM KONCE</th>
+                                <th>STAV</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expiring-table-body">
+                            <!-- Rows inserted by JS -->
+                        </tbody>
+                    </table>
+
+                    <!-- Loading State -->
+                    <div id="state-message" class="state-message">
+                        <div class="big-spinner"></div>
+                        <p>Klikněte na "Synchronizovat" pro načtení dat.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/expiring.js"></script>
+</body>
+</html>

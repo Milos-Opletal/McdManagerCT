@@ -1,0 +1,87 @@
+/* Končící Verifikace Styles */
+
+.state-message {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.big-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Status Pills */
+.status-pill {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-verified {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.status-not-verified {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #DC2626;
+}
+
+.emp-name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.emp-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary-color), #ff4b4b);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 4px rgba(219, 0, 7, 0.2);
+}
+
+.emp-name-text {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Back Button */
+.btn-back {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
