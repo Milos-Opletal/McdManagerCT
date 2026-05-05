@@ -442,6 +442,20 @@ function buildTableBody(employeesList, columnsDef, tableId) {
             html += `</tr>`;
         });
         
+        // Pad with empty rows to fill the page (so manual handwritten entries can be added)
+        if (tableId === 'table-crew-trenink' && chunk.length < ROWS_PER_PAGE) {
+            for (let j = chunk.length; j < ROWS_PER_PAGE; j++) {
+                html += `<tr>`;
+                html += `<td class="name-col"></td>`;
+                flatCols.forEach(col => {
+                    const groupClass = groupStartCols.has(col) ? 'group-start' : '';
+                    html += `<td class="state-cell ${groupClass}"></td>`;
+                });
+                html += `<td class="actions-col no-print"></td>`;
+                html += `</tr>`;
+            }
+        }
+        
         html += `</tbody>`;
     }
 

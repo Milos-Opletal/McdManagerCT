@@ -5,7 +5,7 @@ services:
     container_name: mcd-manager-web
     restart: unless-stopped
     # Using gunicorn as the production WSGI server. Timeout increased as sync might take a while.
-    command: gunicorn --bind 0.0.0.0:4335 --workers 1 --threads 8 --timeout 120 app:app
+    command: gunicorn --bind 0.0.0.0:4335 --workers 1 --threads 1 --timeout 60 app:app
     ports:
       - "4335:4335"
     networks:
@@ -15,7 +15,6 @@ services:
       - MYMCD_EMAIL=${MYMCD_EMAIL}
       - MYMCD_PASSWORD=${MYMCD_PASSWORD}
       - APP_PASSWORD=${APP_PASSWORD}
-      - SECRET_KEY=${SECRET_KEY}
 
 networks:
   nginx_default:
