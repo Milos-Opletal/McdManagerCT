@@ -15,7 +15,6 @@ services:
       - MYMCD_EMAIL=${MYMCD_EMAIL}
       - MYMCD_PASSWORD=${MYMCD_PASSWORD}
       - APP_PASSWORD=${APP_PASSWORD}
-      - SECRET_KEY=${SECRET_KEY}
 
 networks:
   nginx_default:

@@ -8,8 +8,7 @@ from functools import wraps
 load_dotenv()
 
 app = Flask(__name__)
-
-app.secret_key = os.getenv("SECRET_KEY", os.urandom(24).hex())
+app.secret_key = os.urandom(24).hex()
 
 def requires_auth(f):
     @wraps(f)
